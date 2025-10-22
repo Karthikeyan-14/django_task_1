@@ -90,14 +90,27 @@
     <p>Return to main page <a href="{% url 'intro' %}" class="text-info">Click Here</a></p>
   </div>
   <center>
+    {% if messages %}
+  <div class="messages mt-4">
+    {% for message in messages %}
+      <div class="alert-message {{ message.tags }}">
+        <span class="message-icon">
+          {% if message.tags == 'success' %}
+            ✅
+          {% elif message.tags == 'error' %}
+            ❌
+          {% elif message.tags == 'warning' %}
+            ⚠️
+          {% else %}
+            💬
+          {% endif %}
+        </span>
+        <span class="message-text">{{ message }}</span>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
 
-  {% if messages %}
-    <ul class="messages mt-3">
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

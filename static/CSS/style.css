@@ -151,4 +151,55 @@ body {
     background: linear-gradient(to right, #ff4b2b, #ff416c);
     transform: scale(1.05);
 }
+/* Message Box Styling */
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
 
+.alert-message {
+    width: 90%;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease-in-out;
+    font-size: 15px;
+}
+
+/* Color Variants for Different Message Types */
+.alert-message.success {
+    background: linear-gradient(135deg, #00c853, #4caf50);
+    color: #fff;
+}
+
+.alert-message.error {
+    background: linear-gradient(135deg, #ff1744, #d50000);
+    color: #fff;
+}
+
+.alert-message.warning {
+    background: linear-gradient(135deg, #ffb300, #ff6f00);
+    color: #1f1f1f;
+}
+
+.alert-message.info {
+    background: linear-gradient(135deg, #2196f3, #42a5f5);
+    color: #fff;
+}
+
+
+.message-icon {
+    font-size: 20px;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
